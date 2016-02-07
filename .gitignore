@@ -1,0 +1,31 @@
+# APPLICAITON DIRECTORIES  #
+############################
+vendor/
+orm/*.php
+orm/model/
+orm/Base/
+orm/Map/
+orm-model/*.sql
+orm-model/*.map
+docs/
+log/*.svg
+log/*.xml
+bower_components/
+public/components/
+node_modules/
+media/
+
+# DEPLOYMENT FILES  #
+#####################
+config.php
+propel.php
+.htaccess
+composer.lock
+bower.json
+environment.cfg
+propel.inc
+
+# GENERATED FILES #
+###################
+*.log
+
