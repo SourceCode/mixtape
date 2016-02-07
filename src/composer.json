@@ -1,0 +1,19 @@
+{
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "twig/twig": "1.*",
+        "propel/propel": "dev-master#56cecb5",
+        "respect/validation": "1.0.*"
+    },
+    "require-dev": {
+        "filp/whoops": "1.1.5",
+        "twig/extensions": "1.2.*@dev",
+        "phpunit/phpunit": "4.3.4",
+        "php-console/php-console": "3.*",
+        "firephp/firephp-core": "dev-master"
+    },
+    "autoload": {
+        "classmap": ["orm/", "app/"]
+    }
+}
