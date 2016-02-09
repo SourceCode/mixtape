@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="record_app" defaultIdMethod="native">
+
+    <!-- Example Module: Records -->
+    <module name="records" moduleTitle="Records" route="records">
+    	<zones>
+    		<lists>
+    			<list targetForm="records" create="true" update="true" delete="true">
+			        <column name="id" source="records[value(id)]" />
+			        <column name="artist" source="records[value(artist)]" />
+			        <column name="title" source="records[value(title)]" />
+			        <column name="track" source="innerJoin:genre[value(name)]" />
+    			</list>
+    		</lists>
+    		<forms>
+    			<form name="records" formTitle="Record">
+		    		<field name="artist" type="text" required="true" validator="string[min(1):max(64)]" grid="3" row="1" storage="records@artist" />
+		    		<field name="title" type="text" required="true" validator="string[min(1):max(64)]" grid="3" row="1" storage="records@title" />
+		    		<field name="track" type="number" required="true" validator="string[min(1):max(64)]" grid="3" row="1" storage="records@track" />
+		    		<field name="genre" type="select" required="true" validator="integer" grid="4" row="1" storage="records@genre_id" source="genres[key(id):value(name)]" />
+    			</form>
+    		</forms>
+    	</zones>
+    	<tables>
+		    <table name="records" phpName="Records">
+		        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+		        <column name="artist" type="varchar" size="64" required="true"/>
+		        <column name="title" type="varchar" size="64" required="true"/>
+		        <column name="track" type="varchar" size="64" required="true"/>
+		    </table>
+		    <table name="genre" phpName="Genre">
+		        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+		        <column name="name" type="varchar" size="64" required="true"/>
+		    </table>
+		</tables>
+	    <fixture target="genre">
+	    	<inserts>
+	    		<record name="Hip-Hop"/>
+	    		<record name="Funk"/>
+	    		<record name="Electronic"/>
+	    	</inserts>
+	    </fixture>
+    </module>
+
+</database>
